@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1029997036623",
+    "project_id": "saptagiri-mess",
+    "storage_bucket": "saptagiri-mess.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029997036623:android:4d7d58873a1dfaa33dd63a",
+        "android_client_info": {
+          "package_name": "com.srsoft.saptagirimess"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1sNQRQFNGVY6z0uUr9v-7kuvX8F_95cg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
