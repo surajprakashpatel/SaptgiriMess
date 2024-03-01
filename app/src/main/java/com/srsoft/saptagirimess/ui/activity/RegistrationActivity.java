@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Firebase;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -70,7 +71,15 @@ public class RegistrationActivity extends AppCompatActivity {
 
                                 String userId =task.getResult().getUser().getUid();
                                 User user = new User(name,age,email,userId,phone,0,"notApproved");
-                                FirebaseDatabase.getInstance().getReference("Users").child(userId).setValue(user);
+                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                Toast.makeText(RegistrationActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                                db.collection("users").document(userId).set(user).
+                                        addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Toast.makeText(RegistrationActivity.this, "Signing In!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
 
                                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                     @Override

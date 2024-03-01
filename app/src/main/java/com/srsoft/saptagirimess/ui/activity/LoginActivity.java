@@ -1,13 +1,10 @@
 package com.srsoft.saptagirimess.ui.activity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -40,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                     binding.etPassword.setError("Enter Password");
                     binding.etPassword.requestFocus();
                 }else{
+                    Toast.makeText(LoginActivity.this, "Please Wait!", Toast.LENGTH_SHORT).show();
                     mAuth = FirebaseAuth.getInstance();
                     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override

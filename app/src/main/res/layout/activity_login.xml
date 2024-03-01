@@ -64,7 +64,6 @@
         android:layout_marginBottom="@dimen/_20sdp"
         android:paddingVertical="@dimen/_20sdp"
         android:text="Next"
-        android:enabled="false"
         android:textAllCaps="false"
         app:cornerRadius="@dimen/_20sdp"
         app:iconGravity="textStart"
