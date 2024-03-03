@@ -19,6 +19,7 @@ import com.srsoft.saptagirimess.R;
 public class CustomProgressDialog extends Dialog {
 
     Context context;
+
     public CustomProgressDialog(@NonNull Context context) {
         super(context);
         this.context = context;
@@ -39,7 +40,6 @@ public class CustomProgressDialog extends Dialog {
                 inflate(R.layout.view_progress_dialog, null);
 
         LinearLayout linearLayout = progressView.findViewById(R.id.loaderDialog);
-
 
 
         setContentView(progressView);

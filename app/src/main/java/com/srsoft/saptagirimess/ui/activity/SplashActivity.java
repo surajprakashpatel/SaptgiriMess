@@ -1,10 +1,10 @@
 package com.srsoft.saptagirimess.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -33,13 +33,13 @@ public class SplashActivity extends AppCompatActivity {
                     Intent intent = new Intent(SplashActivity.this, DashboardActivity.class);
                     startActivity(intent);
                     finish();
-                }else{
+                } else {
                     Intent intent = new Intent(SplashActivity.this, SelectorActivity.class);
                     startActivity(intent);
                     finish();
                 }
 
             }
-        },1000);
+        }, 1000);
     }
 }

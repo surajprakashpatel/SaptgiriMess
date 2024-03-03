@@ -1,7 +1,6 @@
 package com.srsoft.saptagirimess.ui.activity;
 
 import android.os.Bundle;
-import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -17,13 +16,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.srsoft.saptagirimess.R;
 import com.srsoft.saptagirimess.adapter.AttendanceAdapter;
 import com.srsoft.saptagirimess.databinding.ActivityAttendanceBinding;
-
-import com.srsoft.saptagirimess.R;
 import com.srsoft.saptagirimess.ui.modal.Attendance;
 
 import java.util.ArrayList;
@@ -32,7 +29,7 @@ import java.util.List;
 public class AttendanceActivity extends AppCompatActivity {
 
     private ActivityAttendanceBinding binding;
-    private List<Attendance> attendance= new ArrayList<>();
+    private List<Attendance> attendance = new ArrayList<>();
     private AttendanceAdapter adapter;
 
     @Override
@@ -57,7 +54,7 @@ public class AttendanceActivity extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AttendanceAdapter(attendance,AttendanceActivity.this,userId);
+        adapter = new AttendanceAdapter(attendance, AttendanceActivity.this, userId);
         binding.recyclerView.setAdapter(adapter);
 
 
@@ -66,9 +63,9 @@ public class AttendanceActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         attendance.clear();
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             QuerySnapshot querySnapshot = task.getResult();
-                            for(DocumentSnapshot documentSnapshot : querySnapshot){
+                            for (DocumentSnapshot documentSnapshot : querySnapshot) {
                                 attendance.add(documentSnapshot.toObject(Attendance.class));
                             }
                             adapter.notifyDataSetChanged();
